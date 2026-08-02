@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Her Little Matcha Café 🍵🌸</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+:root{
+
+    --pink:#F7A8C4;
+    --soft-pink:#FFD6E8;
+
+    --matcha:#A8C686;
+    --dark-matcha:#6F8F52;
+
+    --text:#5B5148;
+
+}
+
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    overflow-x:hidden;
+
+
+    background:
+
+    radial-gradient(circle at top left,
+    #F7A8C4,
+    transparent 45%),
+
+
+    radial-gradient(circle at bottom right,
+    #A8C686,
+    transparent 45%),
+
+
+    linear-gradient(
+    135deg,
+    #FFD6E8,
+    #D8EBC2
+    );
+
+}
+
+
+
+body::before{
+
+    content:"🌸 🍃 🍵 🌸 🍃 🍵";
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    font-size:35px;
+
+    letter-spacing:25px;
+
+    opacity:.25;
+
+    animation:float 18s linear infinite;
+
+    pointer-events:none;
+
+}
+
+
+
+@keyframes float{
+
+    from{
+
+        transform:translateY(100vh);
+
+    }
+
+
+    to{
+
+        transform:translateY(-120vh);
+
+    }
+
+}
+
+
+
+.container{
+
+
+    width:100%;
+
+    max-width:850px;
+
+
+    background:
+
+    rgba(255,214,232,.45);
+
+
+    backdrop-filter:blur(20px);
+
+
+    border:2px solid rgba(247,168,196,.6);
+
+
+    border-radius:35px;
+
+
+    padding:45px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 25px 60px rgba(111,143,82,.25);
+
+
+    animation:show .8s ease;
+
+
+}
+
+
+
+@keyframes show{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px) scale(.95);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+
+
+
+h1{
+
+
+    font-size:2.5rem;
+
+    margin-bottom:20px;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #E85D9E,
+    #6F8F52
+    );
+
+
+    -webkit-background-clip:text;
+
+    color:transparent;
+
+
+}
+
+
+
+.subtitle{
+
+    color:var(--text);
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+
+
+
+button{
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #A8C686,
+    #6F8F52
+    );
+
+
+    color:white;
+
+
+    border:none;
+
+
+    padding:16px 40px;
+
+
+    border-radius:50px;
+
+
+    font-size:18px;
+
+
+    font-weight:600;
+
+
+    cursor:pointer;
+
+
+    transition:.35s;
+
+
+    box-shadow:
+
+    0 12px 25px rgba(111,143,82,.35);
+
+
+}
+
+
+
+
+button:hover{
+
+
+    transform:
+
+    translateY(-5px)
+
+    scale(1.05);
+
+
+}
+
+
+
+
+
+.hidden{
+
+    display:none;
+
+}
+
+
+
+
+.cards{
+
+
+    margin-top:35px;
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(170px,1fr));
+
+
+    gap:20px;
+
+
+}
+
+
+
+
+
+.card{
+
+
+    background:
+
+    linear-gradient(
+    145deg,
+    #FFD6E8,
+    #D8EBC2
+    );
+
+
+    border-radius:25px;
+
+
+    padding:30px 20px;
+
+
+    border:2px solid #F7A8C4;
+
+
+    cursor:pointer;
+
+
+    transition:.35s;
+
+
+    box-shadow:
+
+    0 10px 25px rgba(111,143,82,.18);
+
+
+}
+
+
+
+
+.card:hover{
+
+
+    transform:
+
+    translateY(-10px)
+
+    rotate(1deg);
+
+
+
+    background:
+
+    linear-gradient(
+    145deg,
+    #F7A8C4,
+    #A8C686
+    );
+
+
+}
+
+
+
+
+
+.emoji{
+
+    font-size:50px;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+.card h3{
+
+    color:#5B5148;
+
+}
+
+
+
+
+
+/* POPUP MESSAGE BOX */
+
+
+.secret{
+
+
+    margin-top:30px;
+
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #F7A8C4,
+    #A8C686
+    );
+
+
+    padding:25px;
+
+
+    border-radius:30px;
+
+
+    color:#5B5148;
+
+
+    animation:pop .5s ease;
+
+
+}
+
+
+
+
+@keyframes pop{
+
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.8);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+
+
+.envelope{
+
+    font-size:55px;
+
+}
+
+
+
+
+.footer{
+
+
+    margin-top:25px;
+
+
+    color:#6F8F52;
+
+
+    font-size:.9rem;
+
+
+}
+
+
+
+
+
+.music{
+
+
+    margin-top:20px;
+
+
+}
+
+
+
+
+
+@media(max-width:600px){
+
+
+    .container{
+
+        padding:25px;
+
+    }
+
+
+
+    h1{
+
+        font-size:1.8rem;
+
+    }
+
+
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+
+    button{
+
+        width:100%;
+
+    }
+
+
+}
+
+
+</style>
+
+</head>
+<body>
+
+
+<div class="container">
+
+
+<h1>
+🌸A Little Something I Made for You🍵
+</h1>
+
+
+<p class="subtitle">
+
+A simple website to show my skills… and maybe impress you a little.
+
+</p>
+
+
+
+
+<button onclick="enterCafe()">
+
+Enter and Read all the Message 🍵
+
+</button>
+
+
+
+
+
+<div id="cafe" class="hidden">
+
+
+
+<div class="cards">
+
+
+
+<div class="card" onclick="showMessage('memory')">
+
+<div class="emoji">
+🌸
+</div>
+
+<h3>
+Cute Memories
+</h3>
+
+</div>
+
+
+
+
+
+<div class="card" onclick="showMessage('like')">
+
+<div class="emoji">
+🍵
+</div>
+
+<h3>
+Why I Like You
+</h3>
+
+</div>
+
+
+
+
+
+<div class="card" onclick="showMessage('letter')">
+
+<div class="emoji">
+💌
+</div>
+
+<h3>
+Secret Letter
+</h3>
+
+</div>
+
+
+
+
+
+<div class="card" onclick="showMessage('song')">
+
+<div class="emoji">
+🎵
+</div>
+
+<h3>
+Our Song
+</h3>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- MESSAGE WILL APPEAR HERE AFTER CLICK -->
+
+
+<div id="popupMessage" class="secret hidden">
+
+
+<div class="envelope">
+
+💌
+
+</div>
+
+
+
+<h2 id="popupTitle">
+
+</h2>
+
+
+
+<p id="popupText">
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+<button class="music" onclick="playMusic()">
+
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+<div class="footer">
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<audio id="music">
+
+<source src="your-song.mp3" type="audio/mpeg">
+
+</audio>
+<script>
+
+
+function enterCafe(){
+
+    document
+    .getElementById("cafe")
+    .classList
+    .remove("hidden");
+
+}
+
+
+
+
+
+function showMessage(type){
+
+
+    let title = document.getElementById("popupTitle");
+
+    let text = document.getElementById("popupText");
+
+    let box = document.getElementById("popupMessage");
+
+
+
+
+    if(type === "memory"){
+
+        title.innerHTML = "🌸 Cute Memories";
+
+        text.innerHTML =
+        "We don't have memories together yet, but maybe someday we will create little moments, random laughs, and beautiful memories that we can look back on. 🌸";
+
+    }
+
+
+
+
+    if(type === "like"){
+
+        title.innerHTML = "🍵 Why I Like You";
+
+        text.innerHTML =
+        "Because there's something about you that makes me curious to know you more. I want to learn about your stories, your dreams, and the little things that make you smile. 🍵";
+
+    }
+
+
+
+
+    if(type === "letter"){
+
+        title.innerHTML = "💌 Secret Letter";
+
+        text.innerHTML =
+        "Hi you Nae. 🌸<br><br>I know we don't have cute memories together yet, because our story is still at the beginning. But I wanted to make a little corner just for you, a tiny café filled with warm thoughts and quiet hopes. I hope someday we get to laugh at random things, share our favorite songs, talk about our days, and create the kind of memories that make us smile whenever we remember them. Until that day comes, I just want you to know that I'm happy to have met you, and I'm excited to see where this little story takes us. Maybe this is only the first page, but I hope it's the start of something beautiful. 🍵🌸";
+
+    }
+
+
+
+
+    if(type === "song"){
+
+        title.innerHTML = "🎵 Our Song";
+
+        text.innerHTML =
+        "Maybe we don't have one yet, but I hope someday we find a song that reminds us of our little story and the moments we share together. 🎶";
+
+    }
+
+
+
+
+    box.classList.remove("hidden");
+
+
+
+    // restart pop animation every click
+
+    box.style.animation = "none";
+
+
+    setTimeout(function(){
+
+        box.style.animation = "pop .5s ease";
+
+    },10);
+
+
+}
+
+
+
+
+
+function playMusic(){
+
+    let song = document.getElementById("music");
+
+    song.play();
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
